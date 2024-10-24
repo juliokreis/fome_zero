@@ -104,4 +104,3 @@ wheel==0.44.0
 xyzservices==2024.9.0
 yarg==0.1.9
 zipp @ file:///home/conda/feedstock_root/build_artifacts/zipp_1726248574750/work
-
