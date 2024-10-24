@@ -9,7 +9,7 @@ st.set_page_config(
     page_icon='🏠',
     layout='wide')
 
-image = imgpil.open('images/logo_restaurant.png')
+image = imgpil.open('logo_restaurant.png')
 st.sidebar.image(image, use_column_width='auto')
 
 st.sidebar.markdown('# Restaurant World')
