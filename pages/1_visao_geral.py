@@ -31,7 +31,7 @@ df['country_code'] = df['country_code'].apply(country_name)
 
 # ------------------------------------------------------------------------------------------
 # SIDEBAR
-image = imgpil.open('images/logo_restaurant.png')
+image = imgpil.open('logo_restaurant.png')
 st.sidebar.image(image, use_column_width='auto')
 
 st.sidebar.markdown('# Escolha o país.')
