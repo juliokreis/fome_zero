@@ -16,7 +16,7 @@ def extract_data(path='/home/jcr/projetos/fome_zero/data/zomato.csv'):
 
 
 # 2. Chama a função que extraiu o dataframe
-df = extract_data
+# df = extract_data
 df_raw = extract_data()
 
 
