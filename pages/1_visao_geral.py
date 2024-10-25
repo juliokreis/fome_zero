@@ -1,4 +1,4 @@
-from util import *
+import util
 import pandas as pd
 import numpy as np
 import PIL.Image as imgpil
