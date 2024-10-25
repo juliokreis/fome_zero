@@ -29,10 +29,10 @@ df = df_raw.copy()
 # Chamada das funções no util.py
 
 # 3.Função que renomea a colunas
-df = rename_columns(df)
+df = util.rename_columns(df)
 
 # 4.Função que gera o código ao nome de cada pais
-df['country_code'] = df['country_code'].apply(country_name)
+df['country_code'] = df['country_code'].apply(util.country_name)
 
 
 # ------------------------------------------------------------------------------------------
