@@ -11,12 +11,13 @@ st.set_page_config(page_title='Home', page_icon='🏠', layout='wide')
 
 
 # 1. Extrai o dataframe, em seguida leitura do arquivo csv
-def extract_data(path='/home/jcr/projetos/fome_zero/data/zomato.csv'):
+def extract_data():
+    path='/home/jcr/projetos/fome_zero/data/zomato.csv'
     return pd.read_csv(path)
 
 
 # 2. Chama a função que extraiu o dataframe
-df = extract_data
+# df = extract_data
 df_raw = extract_data()
 
 
