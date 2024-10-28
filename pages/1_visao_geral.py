@@ -13,7 +13,7 @@ st.set_page_config(page_title='Home', page_icon='🏠', layout='wide')
 
 # 1. Extrai o dataframe, em seguida leitura do arquivo csv
 # caminho absoluto (teste)
-def extract_data(path='/home/jcr/projetos/fome_zero/data/zomato.csv'):
+def extract_data(path='data/zomato.csv'):
 
 # caminho relativo (deploy)
 # def extract_data(path='fome_zero/data/zomato.csv'):
