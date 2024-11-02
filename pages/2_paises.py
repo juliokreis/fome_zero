@@ -15,18 +15,19 @@ st.set_page_config(page_title='Países', page_icon='🌐', layout='wide')
 # ----------------------------------------------------------------
 # Chama funções em util.py
 
-# 2. df_raw recebe função 'def extract_data' em utils
-df_raw = us.extract_data()
+# caminho relativo (deploy)
+def extract_data(path='data/zomato.csv'):
+    return pd.read_csv(path)
+
+# 1.Função que lê o dataframe
+df = extract_data()
+
+# 2. Chama a função que extraiu o dataframe
+df = extract_data
+df_raw = extract_data()
 
 # 3. Copia o dataframe original (df_raw) para o de trabalho (df)
 df = df_raw.copy()
-
-# 4.Função que renomea a colunas
-df = us.rename_columns(df)
-
-# 5.Função que gera o código ao nome de cada pais
-df['country_code'] = df['country_code'].apply(us.country_name)
-
 # ------------------------------------------------------------------------------------------
 # FUNÇÕES GRÁFICAS
 
