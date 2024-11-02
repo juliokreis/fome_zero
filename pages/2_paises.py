@@ -1,4 +1,4 @@
-import utils as utils
+import utils as us
 import folium
 import numpy as np
 import pandas as pd
@@ -16,16 +16,16 @@ st.set_page_config(page_title='Países', page_icon='🌐', layout='wide')
 # Chama funções em util.py
 
 # 2. df_raw recebe função 'def extract_data' em utils
-df_raw = utils.extract_data()
+df_raw = us.extract_data()
 
 # 3. Copia o dataframe original (df_raw) para o de trabalho (df)
 df = df_raw.copy()
 
 # 4.Função que renomea a colunas
-df = utils.rename_columns(df)
+df = us.rename_columns(df)
 
 # 5.Função que gera o código ao nome de cada pais
-df['country_code'] = df['country_code'].apply(utils.country_name)
+df['country_code'] = df['country_code'].apply(us.country_name)
 
 # ------------------------------------------------------------------------------------------
 # FUNÇÕES GRÁFICAS
