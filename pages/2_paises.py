@@ -70,7 +70,7 @@ with st.container():
     st.markdown('## VISÃO PAÍSES')
 
     # Filtro multiseletor de paises
-    country_options = st.sidebar.multiselect('', sorted(set(df['country_code'].unique())),
+    country_options = st.sidebar.multiselect('', sorted(set(df['country_name'].unique())),
         default=['Brazil','India','United States of America','South Africa', 'Canada'] )
         
     linhas_selecionadas = df['country_code'].isin(country_options)
