@@ -17,7 +17,7 @@ from streamlit_folium import folium_static
 # Leitura do dataframe bruto
 
 # caminho relativo (deploy)
-def extract_data(path='fome_zero/data/zomato.csv'):
+def extract_data(path='data/zomato.csv'):
     return pd.read_csv(path)
 
 # 1.Função que lê o dataframe
