@@ -33,7 +33,7 @@ df = df_raw.copy()
 
 # DE TROCA
 # 4.Função que gera o código ao nome de cada pais
-df['country_code'] = df['country_code'].apply(us.country_name)
+df['country_name'] = df['country_code'].apply(us.country_name)
 
 # GRÁFICAS
 
