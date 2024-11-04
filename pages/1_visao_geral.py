@@ -68,7 +68,7 @@ image = imgpil.open('logo_restaurant.png')
 st.sidebar.image(image, use_column_width='auto')
 
 # Filtro multiseletor de paises
-df['country_name'] = df['country_code'].apply(country_name
+df['country_name'] = df['country_code'].apply(country_name)
                                               
 st.markdown('### Escolha o país.')
 
