@@ -68,11 +68,11 @@ st.sidebar.markdown('''---''')
 
 with st.container():
     st.markdown('## VISÃO PAÍSES')
-    country_list = list(df['country_name'].unique())
+    country_list = list(df['country_code'].unique())
     country_options = st.sidebar.multiselect('', country_list,
     default=['India','Australia','Brazil','Canada','Indonesia'])
     
-    linhas_selecionadas = df['country_name'].isin(country_options)
+    linhas_selecionadas = df['country_code'].isin(country_options)
     df = df.loc[linhas_selecionadas,:]
     
     # st.write("You selected:", options)
