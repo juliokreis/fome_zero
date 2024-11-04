@@ -11,23 +11,36 @@ from streamlit_folium import folium_static
 # ----------------------------------------------------------------
 
 # st.set_page_config(page_title='Países', page_icon='🌐', layout='wide')
+st.set_page_config(page_title='Países', page_icon='🌐', layout='wide')
 
 # ----------------------------------------------------------------
 # Chama funções em util.py
 
-# caminho relativo (deploy)
-def extract_data(path='data/zomato.csv'):
-    return pd.read_csv(path)
-
-# 1.Função que lê o dataframe
-df = extract_data()
-
-# 2. Chama a função que extraiu o dataframe
-df = extract_data
-df_raw = extract_data()
+# 2. df_raw recebe função 'def extract_data' em utils
+df_raw = us.extract_data()
 
 # 3. Copia o dataframe original (df_raw) para o de trabalho (df)
 df = df_raw.copy()
+
+# 4.Função que renomea a colunas
+df = us.rename_columns(df)
+
+# 5.Função que gera o código ao nome de cada pais
+df['country_code'] = df['country_code'].apply(us.country_name)
+
+# # caminho relativo (deploy)
+# def extract_data(path='data/zomato.csv'):
+#     return pd.read_csv(path)
+
+# # 1.Função que lê o dataframe
+# df = extract_data()
+
+# # 2. Chama a função que extraiu o dataframe
+# df = extract_data
+# df_raw = extract_data()
+
+# # 3. Copia o dataframe original (df_raw) para o de trabalho (df)
+# df = df_raw.copy()
 # ------------------------------------------------------------------------------------------
 # FUNÇÕES 
 
@@ -73,28 +86,12 @@ st.sidebar.markdown('''---''')
 
 with st.container():
     st.markdown('## VISÃO PAÍSES')
+
+    country_options = st.sidebar.multiselect('', sorted(set(df['country_name'].unique())),
+    default=['Brazil', 'India','United States of America','South Africa', 'Canada'] )
     
-    # # Aplicando a função no dataframe para substituir os códigos pelos nomes dos países
-    # df['country_name'] = df['country_code'].apply(country_name)
-    
-    # Opções de seleção dos países pela barra lateral                                              
-    country_options = st.sidebar.multiselect('', sorted(set(df['country_name'].unique())),default=['Brazil', 'India','United States of America','South Africa', 'Canada'])
-    
-    # Filtrando o dataframe com os países selecionados
     linhas_selecionadas = df['country_name'].isin(country_options)
     df = df.loc[linhas_selecionadas, :]
-
-    st.write(df)
-    
-
-
-    # # Filtro multiseletor de paises
-    # df['country_name'] = df['country_code'].apply(country_name).unique()
-    # country_options = st.sidebar.multiselect('', sorted(set(df['country_name'].unique())),
-    # default=['Brazil', 'India','United States of America','South Africa', 'Canada'] )
-    
-    # linhas_selecionadas = df['country_code'].isin(country_options)
-    # df = df.loc[linhas_selecionadas, :]
 
 st.sidebar.markdown('''---''')
 st.sidebar.markdown('''## Powered by Júlio Reis''')
