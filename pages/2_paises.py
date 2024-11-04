@@ -74,8 +74,8 @@ st.sidebar.markdown('''---''')
 with st.container():
     st.markdown('## VISÃO PAÍSES')
     
-    # Aplicando a função no dataframe para substituir os códigos pelos nomes dos países
-    df['country_name'] = df['country_code'].apply(country_name)
+    # # Aplicando a função no dataframe para substituir os códigos pelos nomes dos países
+    # df['country_name'] = df['country_code'].apply(country_name)
     
     # Opções de seleção dos países pela barra lateral                                              
     country_options = st.sidebar.multiselect('', sorted(set(df['country_name'].unique())),default=['Brazil', 'India','United States of America','South Africa', 'Canada'])
@@ -84,6 +84,7 @@ with st.container():
     linhas_selecionadas = df['country_name'].isin(country_options)
     df = df.loc[linhas_selecionadas, :]
 
+    st.write(df)
     
 
 
