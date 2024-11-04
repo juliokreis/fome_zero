@@ -70,13 +70,20 @@ with st.container():
     st.markdown('## VISÃO PAÍSES')
 
     # Filtro multiseletor de paises
-
-    df['country_name'] = df['country_code'].apply(country_name).unique()
-    country_options = st.sidebar.multiselect('', sorted(set(df['country_name'].unique())),
+    st.markdown('### Escolha o país.')
+    country_options = st.sidebar.multiselect('', sorted(set(df['country_code'].unique())),
     default=['Brazil', 'India','United States of America','South Africa', 'Canada'] )
     
     linhas_selecionadas = df['country_code'].isin(country_options)
     df = df.loc[linhas_selecionadas, :]
+
+    # # Filtro multiseletor de paises
+    # df['country_name'] = df['country_code'].apply(country_name).unique()
+    # country_options = st.sidebar.multiselect('', sorted(set(df['country_name'].unique())),
+    # default=['Brazil', 'India','United States of America','South Africa', 'Canada'] )
+    
+    # linhas_selecionadas = df['country_code'].isin(country_options)
+    # df = df.loc[linhas_selecionadas, :]
 
 st.sidebar.markdown('''---''')
 st.sidebar.markdown('''## Powered by Júlio Reis''')
