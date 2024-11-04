@@ -56,7 +56,7 @@ def cidades_por_pais(df):
     pais = df.groupby('country_name')['city'].nunique().sort_values(ascending=False).reset_index()
     
     # gráfico
-    fig = px.bar(pais, x=pais['country_code'], y=pais['city'],
+    fig = px.bar(pais, x=pais['country_name'], y=pais['city'],
                 title='Quantidade de cidades por País',
                 labels={'country_code': 'País', 'city': 'Qtde Cidades'})
     fig.update_traces(texttemplate = '%{y}') 
