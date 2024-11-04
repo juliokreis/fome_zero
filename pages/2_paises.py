@@ -53,7 +53,7 @@ def cidades_por_pais(df):
     df['country_name'] = df['country_code'].apply(us.country_name)
     
     # Agrupa a quantidade de cidades por país usando o nome do país
-    pais = df.groupby('country_code')['city'].nunique().sort_values(ascending=False).reset_index()
+    pais = df.groupby('country_name')['city'].nunique().sort_values(ascending=False).reset_index()
     
     # gráfico
     fig = px.bar(pais, x=pais['country_code'], y=pais['city'],
