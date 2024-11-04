@@ -121,14 +121,14 @@ with st.container():
     with col1:
         st.markdown('Gráfico 2')
         # Chama a função 'def cidades_por_pais' para plotar o gráfico de barras
-        fig = restaurantes_por_pais(df)
-        st.plotly_chart(fig, use_container_width=True)
+        # fig = restaurantes_por_pais(df)
+        # st.plotly_chart(fig, use_container_width=True)
 
     with col2:
         st.markdown('Gráfico 3')
         # Chama a função 'def cidades_por_pais' para plotar o gráfico de barras
-        fig = nivel_4(df)
-        st.plotly_chart(fig, use_container_width=True)
+        # fig = nivel_4(df)
+        # st.plotly_chart(fig, use_container_width=True)
 
         
         
