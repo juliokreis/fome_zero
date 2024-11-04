@@ -51,12 +51,6 @@ def geolocal(df):
 
     agrupador = MarkerCluster().add_to(mapa_coordenadas)
 
-    # for index, location_info in mapa.iterrows():
-    # (folium.Marker([location_info['latitude'],
-    #                 location_info['longitude']],
-    #                 popup=location_info[['city', 'restaurant_name', 'cuisines']])
-    #                   .add_to(agrupador))
-
     for index, location_info in mapa.iterrows():
         (folium.Marker([location_info['latitude'],
                         location_info['longitude']],
@@ -74,12 +68,29 @@ image = imgpil.open('logo_restaurant.png')
 st.sidebar.image(image, use_column_width='auto')
 
 # Filtro multiseletor de paises
+df['country_name'] = df['country_code'].apply(country_name
+                                              
 st.markdown('### Escolha o país.')
-country_options = st.sidebar.multiselect('', sorted(set(df['country_code'].unique())),
-    default=['Brazil', 'India','United States of America','South Africa', 'Canada'] )
-    
-linhas_selecionadas = df['country_code'].isin(country_options)
+
+# Opções de seleção dos países pela barra lateral                                              
+country_options = st.sidebar.multiselect
+(
+    '',
+    sorted(set(df['country_name'].unique())),
+    default=['Brazil', 'India','United States of America','South Africa', 'Canada']
+)
+
+# Filtrando o dataframe com os países selecionados
+linhas_selecionadas = df['country_name'].isin(country_options)
 df = df.loc[linhas_selecionadas, :]
+
+
+# st.markdown('### Escolha o país.')
+# country_options = st.sidebar.multiselect('', sorted(set(df['country_code'].unique())),
+#     default=['Brazil', 'India','United States of America','South Africa', 'Canada'] )
+    
+# linhas_selecionadas = df['country_code'].isin(country_options)
+# df = df.loc[linhas_selecionadas, :]
 
 st.sidebar.markdown('''---''')
 st.sidebar.markdown('''## Powered by Júlio Reis''')
