@@ -63,10 +63,23 @@ def restaurantes_por_pais(df):
     pais = df.groupby('country_code')['restaurant_id'].nunique().sort_values(ascending=False).reset_index()
 
     # gráfico
-    fig = px.bar(pais, x='country_code', y='restaurant_id')
     fig = px.bar(pais, x='country_code',y='restaurant_id',
                 title='Quantidade de cidades por País',
                 labels={'country_code': 'País', 'restaurant_id': 'Qtde de restaurantes'})
+    fig.update_traces(texttemplate = '%{y}')
+    return fig
+
+def nivel_4
+    df['price_type'] = df.loc[:, 'price_range'].apply(lambda x: create_price_tye(x))
+
+    price_type_counts = df['price_type'].value_counts().reset_index()
+    price_type_counts.columns = ['price_type', 'count']
+    df.sort_values(by='count', ascending=False)
+    
+    # grafico de barras
+    fig = px.bar(df, x='country_name',y='restaurant_id',
+                title='Países com restaurantes nível 4',
+                labels={'country_name': 'País', 'restaurant_id': 'Qtde de restaurantes'})
     fig.update_traces(texttemplate = '%{y}')
     return fig
 
@@ -104,11 +117,15 @@ with st.container():
     col1, col2 = st.columns(2)
     with col1:
         st.markdown('Gráfico 2')
-        # # Chama a função 'def cidades_por_pais' para plotar o gráfico de barras
-        # fig = restaurantes_por_pais(df)
-        # st.plotly_chart(fig, use_container_width=True)
+        # Chama a função 'def cidades_por_pais' para plotar o gráfico de barras
+        fig = restaurantes_por_pais(df)
+        st.plotly_chart(fig, use_container_width=True)
 
     with col2:
         st.markdown('Gráfico 3')
+        # Chama a função 'def cidades_por_pais' para plotar o gráfico de barras
+        fig = nivel_4(df)
+        st.plotly_chart(fig, use_container_width=True)
+
         
         
