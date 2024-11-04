@@ -29,7 +29,13 @@ df_raw = extract_data()
 # 3. Copia o dataframe original (df_raw) para o de trabalho (df)
 df = df_raw.copy()
 # ------------------------------------------------------------------------------------------
-# FUNÇÕES GRÁFICAS
+# FUNÇÕES 
+
+# DE TROCA
+# 4.Função que gera o código ao nome de cada pais
+df['country_code'] = df['country_code'].apply(us.country_name)
+
+# GRÁFICAS
 
 def cidades_por_pais(df):
     # Agrupa a quantidade de cidades por país usando o nome do país
@@ -42,8 +48,7 @@ def cidades_por_pais(df):
                 labels={'country_code': 'País', 'city': 'Qtde Cidades'})
     fig.update_traces(texttemplate = '%{y}') 
     return fig
-
-
+    
 def restaurantes_por_pais(df):
     # Agrupa a quantidade de cidades por país usando o nome do país
     pais = df.groupby('country_code')['restaurant_id'].nunique().sort_values(ascending=False).reset_index()
@@ -68,14 +73,24 @@ st.sidebar.markdown('''---''')
 
 with st.container():
     st.markdown('## VISÃO PAÍSES')
-    country_list = list(df['country_code'].unique())
-    country_options = st.sidebar.multiselect('', country_list,
-    default=['India','Australia','Brazil','Canada','Indonesia'])
     
-    linhas_selecionadas = df['country_code'].isin(country_options)
-    df = df.loc[linhas_selecionadas,:]
+    # Aplicando a função no dataframe para substituir os códigos pelos nomes dos países
+    df['country_name'] = df['country_code'].apply(country_name)
     
-    # st.write("You selected:", options)
+    # Opções de seleção dos países pela barra lateral                                              
+    country_options = st.sidebar.multiselect
+    (
+        '',
+        sorted(set(df['country_name'].unique())),
+        default=['Brazil', 'India','United States of America','South Africa', 'Canada']
+    )
+    
+    # Filtrando o dataframe com os países selecionados
+    linhas_selecionadas = df['country_name'].isin(country_options)
+    df = df.loc[linhas_selecionadas, :]
+
+    
+
 
     # # Filtro multiseletor de paises
     # df['country_name'] = df['country_code'].apply(country_name).unique()
