@@ -78,12 +78,7 @@ with st.container():
     df['country_name'] = df['country_code'].apply(country_name)
     
     # Opções de seleção dos países pela barra lateral                                              
-    country_options = st.sidebar.multiselect
-    (
-        '',
-        sorted(set(df['country_name'].unique())),
-        default=['Brazil', 'India','United States of America','South Africa', 'Canada']
-    )
+    country_options = st.sidebar.multiselect('', sorted(set(df['country_name'].unique())),default=['Brazil', 'India','United States of America','South Africa', 'Canada'])
     
     # Filtrando o dataframe com os países selecionados
     linhas_selecionadas = df['country_name'].isin(country_options)
