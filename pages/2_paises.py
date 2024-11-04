@@ -69,7 +69,7 @@ def restaurantes_por_pais(df):
     fig.update_traces(texttemplate = '%{y}')
     return fig
 
-def nivel_4
+def nivel_4(df):
     df['price_type'] = df.loc[:, 'price_range'].apply(lambda x: create_price_tye(x))
 
     price_type_counts = df['price_type'].value_counts().reset_index()
