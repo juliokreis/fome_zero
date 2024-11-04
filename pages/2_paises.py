@@ -68,14 +68,17 @@ st.sidebar.markdown('''---''')
 
 with st.container():
     st.markdown('## VISÃO PAÍSES')
-
-    # Filtro multiseletor de paises
-    st.markdown('### Escolha o país.')
-    country_options = st.sidebar.multiselect('', sorted(set(df['country_code'].unique())),
-    default=['Brazil', 'India','United States of America','South Africa', 'Canada'] )
-    
+ 
+    country_options = st.multiselect('',
+        ['India','Australia','Brazil','Canada','Indonesia','New Zeland',
+        'Philippines','Qatar','Singapure','South Africa','Sri Lanka',
+        'Turkey','United Arab Emirates','England','United States of America'],
+        default=['India','Australia','Brazil','Canada','Indonesia'],
+    )
     linhas_selecionadas = df['country_code'].isin(country_options)
     df = df.loc[linhas_selecionadas, :]
+    
+    # st.write("You selected:", options)
 
     # # Filtro multiseletor de paises
     # df['country_name'] = df['country_code'].apply(country_name).unique()
