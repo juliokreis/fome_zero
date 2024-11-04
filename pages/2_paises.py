@@ -68,7 +68,8 @@ st.sidebar.markdown('''---''')
 
 with st.container():
     st.markdown('## VISÃO PAÍSES')
- 
+
+    df['country_code'].apply(country_name).unique()
     country_options = st.sidebar.multiselect('',
     ['India','Australia','Brazil','Canada','Indonesia','New Zeland',
     'Philippines','Qatar','Singapure','South Africa','Sri Lanka',
