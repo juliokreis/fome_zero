@@ -48,9 +48,13 @@ df['country_name'] = df['country_code'].apply(us.country_name)
 
 # 1. Qual o nome do país que possui mais cidades registradas?
 def cidades_por_pais(df):
+
+    # Cria uma nova coluna 'country_name' substituindo o código pelo nome
+    df['country_name'] = df['country_code'].apply(country_name)
+    
     # Agrupa a quantidade de cidades por país usando o nome do país
     pais = df.groupby('country_code')['city'].nunique().sort_values(ascending=False).reset_index()
-
+    
     # gráfico
     fig = px.bar(pais, x=pais['country_code'], y=pais['city'],
                 title='Quantidade de cidades por País',
