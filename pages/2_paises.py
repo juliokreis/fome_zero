@@ -46,6 +46,7 @@ df['country_name'] = df['country_code'].apply(us.country_name)
 
 # GRÁFICAS
 
+# 1. Qual o nome do país que possui mais cidades registradas?
 def cidades_por_pais(df):
     # Agrupa a quantidade de cidades por país usando o nome do país
     pais = df.groupby('country_code')['city'].nunique().sort_values(ascending=False).reset_index()
@@ -58,11 +59,13 @@ def cidades_por_pais(df):
     fig.update_traces(texttemplate = '%{y}') 
     return fig
     
+# 2. Qual o nome do país que possui mais restaurantes registrados?
 def restaurantes_por_pais(df):
     # Agrupa a quantidade de cidades por país usando o nome do país
     pais = df.groupby('country_code')['restaurant_id'].nunique().sort_values(ascending=False).reset_index()
 
     # gráfico
+    fig = px.bar(pais, x='country_code', y='restaurant_id')
     fig = px.bar(pais, x='country_code',y='restaurant_id',
                 title='Quantidade de cidades por País',
                 labels={'country_code': 'País', 'restaurant_id': 'Qtde de restaurantes'})
