@@ -69,12 +69,12 @@ st.sidebar.markdown('''---''')
 with st.container():
     st.markdown('## VISÃO PAÍSES')
  
-    country_options = st.multiselect('',
-        ['India','Australia','Brazil','Canada','Indonesia','New Zeland',
-        'Philippines','Qatar','Singapure','South Africa','Sri Lanka',
-        'Turkey','United Arab Emirates','England','United States of America'],
-        default=['India','Australia','Brazil','Canada','Indonesia'],
-    )
+    country_options = st.sidebar.multiselect('',
+    ['India','Australia','Brazil','Canada','Indonesia','New Zeland',
+    'Philippines','Qatar','Singapure','South Africa','Sri Lanka',
+    'Turkey','United Arab Emirates','England','United States of America'],
+    default=['India','Australia','Brazil','Canada','Indonesia'])
+    
     linhas_selecionadas = df['country_code'].isin(country_options)
     df = df.loc[linhas_selecionadas, :]
     
