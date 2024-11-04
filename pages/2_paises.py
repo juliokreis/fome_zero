@@ -24,9 +24,6 @@ df = df_raw.copy()
 # 4.Função que renomea a colunas
 df = us.rename_columns(df)
 
-# 5.Função que gera o código ao nome de cada pais
-df['country_code'] = df['country_code'].apply(us.country_name)
-
 # # caminho relativo (deploy)
 # def extract_data(path='data/zomato.csv'):
 #     return pd.read_csv(path)
