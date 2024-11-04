@@ -24,7 +24,7 @@ st.set_page_config(page_title='Home', page_icon='🏠', layout='wide')
 #     return pd.read_csv(path)
 
 # caminho relativo (deploy)
-def extract_data(path='fome_zero/data/zomato.csv'):
+def extract_data(path='data/zomato.csv'):
     return pd.read_csv(path)
 
 
