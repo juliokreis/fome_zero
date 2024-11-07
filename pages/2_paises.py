@@ -24,9 +24,6 @@ df = df_raw.copy()
 # Função que renomea a colunas
 df = us.rename_columns(df)
 
-# Função que renomea a colunas
-df = us.rename_columns(df)
-
 # Função que gera o código ao nome de cada pais
 df['country_code'] = df['country_code'].apply(us.country_name)
 
