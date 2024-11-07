@@ -12,7 +12,7 @@ from streamlit_folium import folium_static
 
 st.set_page_config(
     page_title='Visão geral',
-    page_icon='🏠',
+    page_icon='👁️',
     layout='wide',
     initial_sidebar_state='auto'
 )
