@@ -11,10 +11,10 @@ from streamlit_folium import folium_static
 # ----------------------------------------------------------------
 
 st.set_page_config(
-    page_title='Países'
-    ,page_icon='🌐'
-    ,layout='wide'
-    ,initial_sidebar_state='auto'
+    page_title='Países',
+    page_icon='🌐',
+    layout='wide',
+    initial_sidebar_state='auto'
 )
 
 # ----------------------------------------------------------------
@@ -75,9 +75,9 @@ def restaurant_country(df):
             .reset_index())
 
     # gráfico
-    fig = px.bar(country, x=country['country_code'], y=country['restaurant_id']
-                 ,title='Quantidade de cidades por País'
-                 ,labels={'country_code': 'País', 'restaurant_id': 'Qtde de restaurantes'})
+    fig = px.bar(country, x=country['country_code'], y=country['restaurant_id'],
+                 title='Quantidade de cidades por País',
+                 labels={'country_code': 'País', 'restaurant_id': 'Qtde de restaurantes'})
     fig.update_traces(texttemplate = '%{y}')
     return fig
 
@@ -90,9 +90,9 @@ def level_price(df):
                  .sort_values('restaurant_id', ascending=False)
                  .reset_index())
     # gráfico
-    fig = px.bar(level_price, x=level_price['country_code'],y=level_price['restaurant_id']
-                 ,title='Países com restaurantes nível 4'
-                 ,labels={'country_code': 'País', 'restaurant_id': 'Qtde restaurant gourmet'})
+    fig = px.bar(level_price, x=level_price['country_code'],y=level_price['restaurant_id'],
+                 title='Países com restaurantes nível 4',
+                 labels={'country_code': 'País', 'restaurant_id': 'Qtde restaurant gourmet'})
     fig.update_traces(texttemplate = '%{y}')
     return fig
 
@@ -137,6 +137,3 @@ with st.container():
         # Chama a função 'def level_price' para plotar o gráfico de barras
         fig = level_price(df)
         st.plotly_chart(fig, use_container_width=True)
-
-        
-        
