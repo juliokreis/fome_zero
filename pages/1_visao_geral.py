@@ -10,8 +10,12 @@ from folium import plugins
 from streamlit_folium import folium_static
 # ----------------------------------------------------------------
 
-# st.set_page_config(page_title='Visão geral', page_icon='🏠', layout='wide')
-
+st.set_page_config(
+    page_title='Visão geral',
+    page_icon='🏠',
+    layout='wide',
+    initial_sidebar_state='auto'
+)
 
 # ----------------------------------------------------------------
 # Leitura do dataframe bruto
