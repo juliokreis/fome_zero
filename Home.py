@@ -7,7 +7,9 @@ import streamlit as st
 st.set_page_config(
     page_title='Home',
     page_icon='🏠',
-    layout='wide')
+    layout='wide',
+    initial_sidebar_state='auto'
+)
 
 image = imgpil.open('logo_restaurant.png')
 st.sidebar.image(image, use_column_width='auto')
