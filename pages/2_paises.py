@@ -52,7 +52,7 @@ df['price_type'] = df.loc[:, 'price_range'].apply(lambda x: us.create_price_tye(
 
 # DE TROCA
 # 4.Função que gera o código ao nome de cada pais
-df['country_name'] = df['country_code'].apply(us.country_name)
+df['country_name'] = df['country_code'].apply(country_name)
 
 
 # ------------------------------------------------------------------------------------------
