@@ -47,12 +47,6 @@ df['price_type'] = df.loc[:, 'price_range'].apply(lambda x: us.create_price_tye(
 
 # # 3. Copia o dataframe original (df_raw) para o de trabalho (df)
 # df = df_raw.copy()
-# ------------------------------------------------------------------------------------------
-# FUNÇÕES 
-
-# DE TROCA
-# 4.Função que gera o código ao nome de cada pais
-df['country_name'] = df['country_code'].apply(country_name)
 
 
 # ------------------------------------------------------------------------------------------
