@@ -96,6 +96,49 @@ def level_price(df):
     fig.update_traces(texttemplate = '%{y}')
     return fig
 
+# 4. Qual o nome do país que possui a maior quantidade de tipos de culinária distintos?
+def cuisines_quantity(df):
+    cuisines_country = (df.loc[:, ['cuisines', 'country_code']]
+                        .groupby('country_code')
+                        .nunique()
+                        .sort_values(by='cuisines', ascending=False)
+                        .reset_index())
+    
+    fig = px.bar(cuisines_country, x=cuisines_country['country_code'], y=cuisines_country['cuisines'],
+                title='Países com maior quantidade de tipos de culinária distintos',
+                labels={'country_code': 'Países', 'cuisines': 'Tipos de culinária'})
+    fig.update_traces(texttemplate = '%{y}')
+    return fig
+
+# 5. Qual o nome do país que possui a maior quantidade de avaliações feitas?
+def country_rank(df):
+    rank = (df.loc[:, ['country_code', 'votes']]
+            .groupby('country_code')
+            .sum()
+            .sort_values(by='votes', ascending=False)
+            .reset_index())
+
+    fig = px.bar(rank, x=rank['country_code'], y=rank['votes'],
+                title='Países com maior quantidade de avaliações feitas',
+                labels={'country_code': 'Países', 'votes': 'Avaliações'})
+    fig.update_traces(texttemplate = '%{y}')
+    return fig
+
+# 6. Qual o nome do país que possui a maior quantidade de restaurantes que fazem entrega?
+def country_delivery(df):
+    delivery = (df.loc[:, ['country_code', 'is_delivering_now']]
+                .groupby('country_code')
+                .count()
+                .sort_values(by='is_delivering_now', ascending=False)
+                .reset_index())
+    
+    fig = px.bar(delivery, x=delivery['country_code'], y=delivery['is_delivering_now'],
+                title='Países com maior quantidade de restaurantes que fazem entrega',
+                labels={'country_code': 'Países', 'is_delivering_now': 'Restaurantes que fazem entrega'})
+    fig.update_traces(texttemplate = '%{y}')
+    return fig
+
+
 # ------------------------------------------------------------------------------------------
 # SIDEBAR
 
@@ -126,14 +169,25 @@ with st.container():
     fig = city_country(df)
     st.plotly_chart(fig, use_container_width=True)
 
+    # Chama a função 'def restaurant_country' para plotar o gráfico de barras
+    fig = restaurant_country(df)
+    st.plotly_chart(fig, use_container_width=True)
+
 with st.container():
     col1, col2 = st.columns(2)
     with col1:
         # Chama a função 'def restaurant_country' para plotar o gráfico de barras
-        fig = restaurant_country(df)
+        fig = cuisines_quantity(df)
+        st.plotly_chart(fig, use_container_width=True)
+
+        fig = country_rank(df)
         st.plotly_chart(fig, use_container_width=True)
 
     with col2:
         # Chama a função 'def level_price' para plotar o gráfico de barras
         fig = level_price(df)
+        st.plotly_chart(fig, use_container_width=True)
+
+        # Chama a função 'def level_price' para plotar o gráfico de barras
+        fig = country_delivery(df)
         st.plotly_chart(fig, use_container_width=True)
