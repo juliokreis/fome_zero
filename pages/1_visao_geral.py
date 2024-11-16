@@ -51,7 +51,7 @@ def geolocal(df):
             .groupby(['country_code', 'city', 'restaurant_name'])
             .value_counts().reset_index().sample(1000))
 
-    mapa_coordenadas = folium.Map(location=[5.9658, -11.6016], zoom_start=2)
+    mapa_coordenadas = folium.Map(location=[5.9658, -11.6016],use_container_width=True , zoom_start=2)
 
     agrupador = MarkerCluster().add_to(mapa_coordenadas)
 
