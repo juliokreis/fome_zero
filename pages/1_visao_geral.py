@@ -87,35 +87,74 @@ st.sidebar.markdown('''## Powered by Júlio Reis''')
 # LAYOUT STREAMLIT
 
 st.header('Visão Geral')
+# with st.container():
+#     col1, col2, col3, col4, col5 = st.columns(spec=[0.5, 0.4, 0.4, 0.5, 0.3])
+#     with col1:
+#         # 1. Quantos restaurantes únicos estão registrados?
+#         # st.markdown('Restaurantes cadastrados')
+#         restaurantes = df['restaurant_id'].nunique()
+#         col1.metric('Restaurantes cadastrados', restaurantes)
+
+#     with col2:
+#         # 2. Quantos países únicos estão registrados?
+#         # st.markdown('Países')
+#         paises = df['country_code'].nunique()
+#         col2.metric('Países cadastrados', paises)
+#     with col3:
+#         # 3. Quantas cidades únicas estão registradas?
+#         # st.markdown('Cidades')
+#         cidades = df['city'].nunique()
+#         col3.metric('Cidades cadastradas', cidades)
+#     with col4:
+#         # 4. Qual o total de avaliações feitas?
+#         # (As avaliações são feitas pela quantidade de votos)
+#         # st.markdown('Avaliações')
+#         avaliacoes = df['votes'].sum()
+#         col4.metric('Avaliações', avaliacoes)
+#     with col5:
+#         # 5. Qual o total de tipos de culinária registrados?
+#         # st.markdown('Culinárias')
+#         culinaria = df['cuisines'].nunique()
+#         col5.metric('Culinária', culinaria)
+
+#     st.markdown(''' ---''')
+
 with st.container():
-    col1, col2, col3, col4, col5 = st.columns(spec=[0.5, 0.4, 0.4, 0.5, 0.3])
+    st.markdown('## Distribuição dos restaurantes pelo mundo')
+    # Geolocalização
+    # Chama a função 'def geolocal' para plotar o mapa
+    st.markdown('localização central de cidade por tráfego')
+    geolocal(df)
+
+    with st.container():
+    col1, col2, col3, col4, col5 = st.columns(5, vertical_alignment='center')
     with col1:
         # 1. Quantos restaurantes únicos estão registrados?
         # st.markdown('Restaurantes cadastrados')
         restaurantes = df['restaurant_id'].nunique()
-        col1.metric('Restaurantes cadastrados', restaurantes)
+        col1.metric(''':red-background[Restaurantes cadastrados]''', restaurantes)
 
     with col2:
         # 2. Quantos países únicos estão registrados?
         # st.markdown('Países')
         paises = df['country_code'].nunique()
-        col2.metric('Países cadastrados', paises)
+        col2.metric(''':red-background[Países cadastrados]''', paises)
     with col3:
         # 3. Quantas cidades únicas estão registradas?
         # st.markdown('Cidades')
         cidades = df['city'].nunique()
-        col3.metric('Cidades cadastradas', cidades)
+        col3.metric(''':red-background[Cidades cadastradas]''', cidades)
     with col4:
         # 4. Qual o total de avaliações feitas?
         # (As avaliações são feitas pela quantidade de votos)
         # st.markdown('Avaliações')
         avaliacoes = df['votes'].sum()
-        col4.metric('Avaliações', avaliacoes)
+        col4.metric(''':red-background[Avaliações]''', avaliacoes)
     with col5:
         # 5. Qual o total de tipos de culinária registrados?
         # st.markdown('Culinárias')
         culinaria = df['cuisines'].nunique()
-        col5.metric('Culinária', culinaria)
+        col5.metric(''':red-background[Culinária]''', culinaria)
 
     st.markdown(''' ---''')
 
@@ -123,6 +162,6 @@ with st.container():
     st.markdown('## Distribuição dos restaurantes pelo mundo')
     # Geolocalização
     # Chama a função 'def geolocal' para plotar o mapa
-    st.markdown('localização central de cidade por tráfego')
+    # st.markdown('localização central de cidade')
     geolocal(df)
 
