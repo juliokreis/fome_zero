@@ -119,20 +119,20 @@ st.header('Visão Geral')
 
 #     st.markdown(''' ---''')
 
-with st.container():
-    st.markdown('## Distribuição dos restaurantes pelo mundo')
+# with st.container():
+    # st.markdown('## Distribuição dos restaurantes pelo mundo')
     # Geolocalização
     # Chama a função 'def geolocal' para plotar o mapa
-    st.markdown('localização central de cidade por tráfego')
-    geolocal(df)
+    # st.markdown('localização central de cidade por tráfego')
+    # geolocal(df)
 
-    with st.container():
+with st.container():
     col1, col2, col3, col4, col5 = st.columns(5, vertical_alignment='center')
     with col1:
-        # 1. Quantos restaurantes únicos estão registrados?
-        # st.markdown('Restaurantes cadastrados')
         restaurantes = df['restaurant_id'].nunique()
         col1.metric(''':red-background[Restaurantes cadastrados]''', restaurantes)
+        # 1. Quantos restaurantes únicos estão registrados?
+        # st.markdown('Restaurantes cadastrados')
 
     with col2:
         # 2. Quantos países únicos estão registrados?
