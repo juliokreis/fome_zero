@@ -127,6 +127,11 @@ st.header('Visão Geral')
     # geolocal(df)
 
 with st.container():
+
+    with open('./style.css') as f:
+    css=f.read()
+    st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
+    
     col1, col2, col3, col4, col5 = st.columns(5, vertical_alignment='center')
     with col1:
         restaurantes = df['restaurant_id'].nunique()
