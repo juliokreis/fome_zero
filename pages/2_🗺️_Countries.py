@@ -18,7 +18,7 @@ import PIL.Image as imgpil
 # ------------------------------------------------------------------------------------------
 st.set_page_config(
     page_title='Países',
-    page_icon='🌐',
+    page_icon='🗺️',
     layout='wide',
     initial_sidebar_state='auto'
 )
