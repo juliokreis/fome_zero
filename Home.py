@@ -1,5 +1,5 @@
-import pandas as pd
-import numpy as np
+# import pandas as pd
+# import numpy as np
 import PIL.Image as imgpil
 import streamlit as st
 
@@ -14,9 +14,10 @@ st.set_page_config(
 image = imgpil.open('logo_restaurant.png')
 st.sidebar.image(image, use_column_width='auto')
 
-st.sidebar.markdown('# Restaurant World')
-st.sidebar.markdown('Encontre seu restaurante no mundo')
+# st.sidebar.markdown('# Restaurant World')
+# st.sidebar.markdown('Encontre seu restaurante no mundo')
 st.sidebar.markdown('''---''')
+st.sidebar.markdown('''## Powered by Júlio Reis''')
 
 # ------------------------------------------
 
@@ -59,7 +60,6 @@ No botão download é possivel baixar em pdf a base de dados com os filtros sele
 
 Deixe seu contato para suporte: telefoen e/ou e-mail
 
+💻 eveloped by Júlio Reis
+
 ''')
-
-
-st.sidebar.markdown('''## Powered by Júlio Reis''')
