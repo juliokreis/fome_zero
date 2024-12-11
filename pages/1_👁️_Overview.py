@@ -35,7 +35,7 @@ st.set_page_config(
 # # 3. Copia o dataframe original (df_raw) para o de trabalho (df)
 # df = df_raw.copy()
 
-----------------------------------
+# ----------------------------------
 # Chamada das funções no util.py
 
 # 1.Função que lê o dataframe
