@@ -3,12 +3,12 @@
 # ----------------------------------------------------------------
 import inflection
 import pandas as pd
+import streamlit as st
 
 from streamlit_folium import folium_static
 
 # import folium
 # import numpy as np
-# import streamlit as st
 # import PIL.Image as imgpil
 # import plotly.express as px
 
