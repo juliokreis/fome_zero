@@ -36,22 +36,7 @@ df = us.rename_columns(df)
 # 4.Função que gera o código ao nome de cada pais
 df['country_code'] = df['country_code'].apply(us.country_name)
 
-# ----------------------------------------------------------------
-# Chamada das funções no util.py
-# ----------------------------------------------------------------
-# # 3.Função que renomea a colunas
-# df = us.rename_columns(df)
 
-# # 4.Função que gera o código ao nome de cada pais
-# df['country_code'] = df['country_code'].apply(us.country_name)
-
-# ------------------------------------------------------------------------------------------
-# FUNÇÃO PARA PLOTAR MAPA
-# ----------------------------------------------------------------
-with st.container():
-    # Chama a função 'def geolocal' para plotar o mapa
-    st.markdown('## Distribuição dos restaurantes pelo mundo')
-    geolocal = functions.geolocal(df)
 
 # ------------------------------------------------------------------------------------------
 # SIDEBAR
@@ -142,6 +127,12 @@ with st.container(border=True):
         # 10. Qual o nome do país que possui, na média, a menor nota média registrada?
         worst_average = functions.pais_com_menor_nota_media(df)
         col4.metric(':material/thumb_down: WORST RATED COUNTRY', worst_average)
-        
-    st.markdown(''' ---''')
 
+
+# ------------------------------------------------------------------------------------------
+# FUNÇÃO PARA PLOTAR MAPA
+# ----------------------------------------------------------------
+with st.container():
+    # Chama a função 'def geolocal' para plotar o mapa
+    st.markdown('## Distribuição dos restaurantes pelo mundo')
+    geolocal = functions.geolocal(df)
