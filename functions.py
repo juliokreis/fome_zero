@@ -77,6 +77,35 @@ def geolocal(df):
     mapa_coordenadas.add_child(folium.LatLngPopup())
     folium_static(mapa_coordenadas, width=None)
 
+#  ---------------------------------------------------------------------------------
+# FUNÇÕES SIDEBAR
+# ----------------------------------------------------------------------------------
+def side_options(df):
+    country_options=(
+        st.sidebar.multiselect
+        ('', sorted
+        (set(df['country_code'].unique())),
+        default=[
+            'India',
+            'Australia',
+            'Brazil',
+            'Canada',
+            'Indonesia',
+            'New Zeland',
+            'Philippines',
+            'Qatar',
+            'Singapure',
+            'South Africa',
+            'Sri Lanka',
+            'Turkey',
+            'Emirates',
+            'England',
+            'USA'
+            ]))
+    linhas_selecionadas = df['country_code'].isin(country_options)
+    df = df.loc[linhas_selecionadas, :]
+    return
+
 
 # ------------------------------------------------------------------------------------------
 # FUNÇÕES GRÁFICAS
