@@ -1,42 +1,32 @@
-import pandas as pd
-import numpy as np
-import PIL.Image as imgpil
-import streamlit as st
+# ----------------------------------------------------------------
+# Import das bibliotecas
+# ----------------------------------------------------------------
 import inflection
-import folium
-import plotly.express as px
-from folium import plugins
+import pandas as pd
+
 from streamlit_folium import folium_static
+
+# import folium
+# import numpy as np
+# import streamlit as st
+# import PIL.Image as imgpil
+# import plotly.express as px
+
+# from folium import plugins
 
 
 # ----------------------------------------------------------------
-
+# 
+# ----------------------------------------------------------------
 st.set_page_config(page_title='Home', page_icon='🏠', layout='wide')
 
 # ----------------------------------------------------------------
 # FUNCTIONS
-
+# ----------------------------------------------------------------
 # 1. Extrai o dataframe, em seguida leitura do arquivo csv
-
-
-# caminho absoluto (teste)
-# def extract_data(path='/home/jcr/projetos/fome_zero/data/zomato.csv'):
-#     return pd.read_csv(path)
-
 # caminho relativo (deploy)
 def extract_data(path='data/zomato.csv'):
     return pd.read_csv(path)
-
-
-# 2. Chama a função que extraiu o dataframe
-def df_copy():
-    df = extract_data
-    df_raw = extract_data()
-
-    # 3. Copia o dataframe original (df_raw) para o de trabalho (df)
-    df = df_raw.copy()
-    return df
-
 
 # 1.Função que categoriza a comida peloa faixa de preço
 def create_price_tye(price_range):
@@ -48,8 +38,6 @@ def create_price_tye(price_range):
         return "expensive"
     else:
         return "gourmet"
-# df = create_price_tye(df)
-
 
 # 2.Função classifica o restaurante conforme a cor. Quanto mais claro melhor.
 def color_name(color_code):
@@ -63,8 +51,6 @@ def color_name(color_code):
         "FF7800": "darkred",
     }
     return COLORS[color_code]
-# df = color_name(df)
-
 
 # 3.Função que renomea a colunas
 def rename_columns(df_raw):
@@ -81,49 +67,34 @@ def rename_columns(df_raw):
 
 
 # 4.Função que gera o código ao nome de cada pais
-
-COUNTRIES = {
-    1: "India",
-    14: "Australia",
-    30: "Brazil",
-    37: "Canada",
-    94: "Indonesia",
-    148: "New Zeland",
-    162: "Philippines",
-    166: "Qatar",
-    184: "Singapure",
-    189: "South Africa",
-    191: "Sri Lanka",
-    208: "Turkey",
-    214: "United Arab Emirates",
-    215: "England",
-    216: "United States of America",
-}
-
 def country_name(country_code):
-    return COUNTRIES[country_code]
+    COUNTRIES = {
+        1: 'India',
+        14: 'Australia',
+        30: 'Brazil',
+        37: 'Canada,
+        94: 'Indonesia',
+        148: 'New Zeland',
+        162: 'Philippines',
+        166: 'Qatar',
+        184: 'Singapure',
+        189: 'South Africa',
+        191: 'Sri Lanka',
+        208: 'Turkey',
+        214: 'Emirates',
+        215: 'England',
+        216: 'USA'
+}
+return COUNTRIES[country_code]
 
+# Categoriza a coluna cuisines de todos os restaurantes por apenas um tipo de culinária
+def cuisines_type(df):
+    df['cuisines'] = df.loc[:, 'cuisines'].astype(str).apply(lambda x: x.split(',')[0])
+    return df
 
-# def country_name(country_code):
-#     COUNTRIES = {
-#         1: 'India',
-#         14: 'Australia',
-#         30: 'Brazil',
-#         37: 'Canada',
-#         94: 'Indonesia',
-#         148: 'New Zeland',
-#         162: 'Philippines',
-#         166: 'Qatar',
-#         184: 'Singapure',
-#         189: 'South Africa',
-#         191: 'Sri Lanka',
-#         208: 'Turkey',
-#         214: 'United Arab Emirates',
-#         215: 'England',
-#         216: 'United States of America'
-#     }
-#     return COUNTRIES[country_code]
-
-
-
+def clean(df):
+    #1. Remover Duplicatas: Identificar e eliminar linhas duplicadas.
+    # df = df.drop_duplicates(inplace=True)
+    df = df.drop(columns=['Locality Verbose'], axis=1)
+    return df
 
