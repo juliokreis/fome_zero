@@ -18,9 +18,6 @@ st.set_page_config(page_title='Países',
 # ------------------------------------------------------------------------------------------
 # Chama funções em util.py
 # ------------------------------------------------------------------------------------------
-# # df_raw recebe função 'def extract_data' em utils
-# df_raw = us.extract_data()
-
 # 1.Função que lê o dataframe
 df = us.extract_data()
 
@@ -56,7 +53,6 @@ st.sidebar.markdown('''## Powered by Júlio Reis''')
 # ------------------------------------------------------------------------------------------
 # LAYOUT STREAMLIT
 # ------------------------------------------------------------------------------------------
-
 with st.container():
     # 1. Qual o nome do país que possui mais cidades registradas?
     # Chama a função 'def city_country' em functions para plotar o gráfico de barras
