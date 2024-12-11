@@ -72,7 +72,7 @@ def country_name(country_code):
         1: 'India',
         14: 'Australia',
         30: 'Brazil',
-        37: 'Canada,
+        37: 'Canada',
         94: 'Indonesia',
         148: 'New Zeland',
         162: 'Philippines',
