@@ -1,14 +1,11 @@
 import functions
 import utils as us
-# import pandas as pd
-# import numpy as np
 import streamlit as st
 import PIL.Image as imgpil
-# import folium
 
-# from folium import plugins
-# from folium.plugins import MarkerCluster
 from streamlit_folium import folium_static
+# ----------------------------------------------------------------
+# 
 # ----------------------------------------------------------------
 
 st.set_page_config(
@@ -20,30 +17,12 @@ st.set_page_config(
 
 # ----------------------------------------------------------------
 # Leitura do dataframe bruto
-
-# caminho relativo (deploy)
-# def extract_data(path='data/zomato.csv'):
-#     return pd.read_csv(path)
-
-# # 1.Função que lê o dataframe
-# df = extract_data()
-
-# # 2. Chama a função que extraiu o dataframe
-# df = extract_data
-# df_raw = extract_data()
-
-# # 3. Copia o dataframe original (df_raw) para o de trabalho (df)
-# df = df_raw.copy()
-
-# ----------------------------------
-# Chamada das funções no util.py
-
+# ----------------------------------------------------------------
 # 1.Função que lê o dataframe
 df = us.extract_data()
 
 # Função de limpeza
 df = us.clean(df)
-
 
 # 3.Função que renomea a colunas
 df = us.rename_columns(df)
@@ -53,7 +32,7 @@ df['country_code'] = df['country_code'].apply(us.country_name)
 
 # ----------------------------------------------------------------
 # Chamada das funções no util.py
-
+# ----------------------------------------------------------------
 # # 3.Função que renomea a colunas
 # df = us.rename_columns(df)
 
@@ -62,25 +41,11 @@ df['country_code'] = df['country_code'].apply(us.country_name)
 
 # ------------------------------------------------------------------------------------------
 # FUNÇÃO PARA PLOTAR MAPA
-
-# def geolocal(df):
-#     mapa = (df.loc[:, ['country_code', 'city', 'latitude', 'longitude', 'restaurant_name', 'cuisines']]
-#             .groupby(['country_code', 'city', 'restaurant_name'])
-#             .value_counts().reset_index().sample(1000))
-
-#     mapa_coordenadas = folium.Map(location=[5.9658, -11.6016],use_container_width=True , zoom_start=2)
-
-#     agrupador = MarkerCluster().add_to(mapa_coordenadas)
-
-#     for index, location_info in mapa.iterrows():
-#         (folium.Marker([location_info['latitude'],
-#                         location_info['longitude']],
-#                        popup=location_info[['country_code','city', 'restaurant_name', 'cuisines']])
-#                        .add_to(agrupador))
-
-#     mapa_coordenadas.add_child(folium.LatLngPopup()) 
-#     folium_static(mapa_coordenadas, width=1024, height=600)
-
+# ----------------------------------------------------------------
+with st.container():
+    # Chama a função 'def geolocal' para plotar o mapa
+    st.markdown('## Distribuição dos restaurantes pelo mundo')
+    geolocal = functions.geolocal(df)
 
 # ------------------------------------------------------------------------------------------
 # SIDEBAR
@@ -174,11 +139,4 @@ with st.container(border=True):
         col4.metric(':material/thumb_down: WORST RATED COUNTRY', worst_average)
         
     st.markdown(''' ---''')
-
-with st.container():
-    # Chama a função 'def geolocal' para plotar o mapa
-    st.markdown('## Distribuição dos restaurantes pelo mundo')
-    geolocal = functions.geolocal(df)
-
-
 
