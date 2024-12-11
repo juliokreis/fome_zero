@@ -64,7 +64,7 @@ country_options = (st.sidebar.multiselect
                         'Turkey',
                         'United Arab Emirates',
                         'England',
-                        'USA'
+                        'United States of America',
                     ]
                    )
                   )
