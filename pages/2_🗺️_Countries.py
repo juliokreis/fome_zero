@@ -48,26 +48,28 @@ st.sidebar.image(image, use_column_width='auto')
 st.sidebar.markdown('''---''')
 
 with st.sidebar.container():
-    st.markdown('## COUNTRIES VIEW')
-    country_options = (st.sidebar.multiselect
-                       ('', sorted(set(df['country_code'].unique())),
-                        default=[
-                            'India',
-                            'Australia',
-                            'Brazil',
-                            'Canada',
-                            'Indonesia',
-                            'New Zeland',
-                            'Philippines',
-                            'Qatar','Singapure',
-                            'South Africa','Sri Lanka',
-                            'Turkey',
-                            'Emirates',
-                            'England',
-                            'USA'
-                        ]
-                       )
-                      )
+  st.markdown('## COUNTRIES VIEW')
+  country_options = (st.sidebar.multiselect
+                     ('', sorted(set(df['country_code'].unique())),
+                      default=[
+                      'India',
+                      'Australia',
+                      'Brazil',
+                      'Canada',
+                      'Indonesia',
+                      'New Zeland',
+                      'Philippines',
+                      'Qatar',
+                      'Singapure',
+                      'South Africa',
+                      'Sri Lanka',
+                      'Turkey',
+                      'Emirates',
+                      'England',
+                      'USA'
+                      ]
+                     )
+                    )
     
     linhas_selecionadas = df['country_code'].isin(country_options)
     df = df.loc[linhas_selecionadas, :]
