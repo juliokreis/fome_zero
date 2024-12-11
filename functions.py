@@ -4,7 +4,6 @@
 import folium
 import utils as us
 import pandas as pd
-from turtle import st
 import plotly.express as px
 
 from folium.plugins import MarkerCluster
