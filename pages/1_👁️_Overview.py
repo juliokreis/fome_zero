@@ -67,7 +67,7 @@ country_options = (
          'South Africa',
          'Sri Lanka',
          'Turkey',
-         'Emirates',
+         'United Arab Emirates',
          'England',
          'USA'
      ]
