@@ -67,7 +67,7 @@ def rename_columns(df_raw):
 
 
 # 4.Função que gera o código ao nome de cada pais
-    COUNTRIES = {
+COUNTRIES = {
     1: "India",
     14: "Australia",
     30: "Brazil",
