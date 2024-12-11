@@ -46,32 +46,9 @@ image = imgpil.open('logo_restaurant.png')
 st.sidebar.image(image, use_column_width='auto')
 
 # Filtro multiseletor de paises
-st.markdown('### Escolha o país.')
-country_options = (st.sidebar.multiselect
-                   ('', sorted(set(df['country_code'].unique())),
-                    default=[
-                        'India',
-                        'Australia',
-                        'Brazil',
-                        'Canada',
-                        'Indonesia',
-                        'New Zeland',
-                        'Philippines',
-                        'Qatar',
-                        'Singapure',
-                        'South Africa',
-                        'Sri Lanka',
-                        'Turkey',
-                        'United Arab Emirates',
-                        'England',
-                        'United States of America',
-                    ]
-                   )
-                  )
-    
-linhas_selecionadas = df['country_code'].isin(country_options)
-df = df.loc[linhas_selecionadas, :]
-
+st.sidebar.markdown('### Escolha o país.')
+# Chamada da função side_options para montar a lista de países (countrei_list)
+countri_list = functions.side_options(df)
 st.sidebar.markdown('''---''')
 st.sidebar.markdown('''## Powered by Júlio Reis''')
 
