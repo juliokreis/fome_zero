@@ -2,9 +2,6 @@ import functions
 import utils as us
 import streamlit as st
 import PIL.Image as imgpil
-# import plotly.graph_objects as go
-# import plotly.figure_factory as ff
-
 
 # ----------------------------------------------------------------
 # Configuração da page
