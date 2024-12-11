@@ -9,12 +9,11 @@ import PIL.Image as imgpil
 # ------------------------------------------------------------------------------------------
 # ícone da abada de navegação
 # ------------------------------------------------------------------------------------------
-st.set_page_config(
-    page_title='Países',
-    page_icon='🗺️',
-    layout='wide',
-    initial_sidebar_state='auto'
-)
+st.set_page_config(page_title='Países',
+                   page_icon='🗺️',
+                   layout='wide',
+                   initial_sidebar_state='auto'
+                  )
 
 # ------------------------------------------------------------------------------------------
 # Chama funções em util.py
