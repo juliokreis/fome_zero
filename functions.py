@@ -86,7 +86,7 @@ def side_options(df):
                      ('', sorted(set(df['country_code'].unique())),
                       default=[
                       'India','Australia','Brazil','Canada','Indonesia','New Zeland','Philippines','Qatar',
-                      'Singapure','South Africa','Sri Lanka','Turkey','"United Arab Emirates"','England',
+                      'Singapure','South Africa','Sri Lanka','Turkey','United Arab Emirates','England',
                       'United States of America',]))
     linhas_selecionadas = df['country_code'].isin(country_options)
     df = df.loc[linhas_selecionadas, :]
