@@ -69,9 +69,9 @@ country_options = (st.sidebar.multiselect
                         'United Arab Emirates',
                         'England',
                         'USA'
-     ]
-    )
-)
+                    ]
+                   )
+                  )
     
 linhas_selecionadas = df['country_code'].isin(country_options)
 df = df.loc[linhas_selecionadas, :]
