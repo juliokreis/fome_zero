@@ -46,7 +46,7 @@ image = imgpil.open('logo_restaurant.png')
 st.sidebar.image(image, use_column_width='auto')
 
 # Filtro multiseletor de paises
-st.markdown.sidebar('### Escolha o país.')
+st.markdown.sidebar('### Escolha o país')
 # Chamada da função side_options para montar a lista de países (countrei_list)
 countrie_list = functions.side_options(df)
 
