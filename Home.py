@@ -60,6 +60,6 @@ No botão download é possivel baixar em pdf a base de dados com os filtros sele
 
 Deixe seu contato para suporte: telefoen e/ou e-mail
 
-💻 eveloped by Júlio Reis
+💻 /> Developed by Júlio Reis
 
 ''')
