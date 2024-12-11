@@ -7,16 +7,8 @@ import streamlit as st
 
 from streamlit_folium import folium_static
 
-# import folium
-# import numpy as np
-# import PIL.Image as imgpil
-# import plotly.express as px
-
-# from folium import plugins
-
-
 # ----------------------------------------------------------------
-# 
+# Identificador da aba de navegação
 # ----------------------------------------------------------------
 st.set_page_config(page_title='Home', page_icon='🏠', layout='wide')
 
