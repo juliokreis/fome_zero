@@ -8,7 +8,7 @@ from streamlit_folium import folium_static
 # 
 # ----------------------------------------------------------------
 
-st.set_page_config(page_title='Visão geral',page_icon='👁️',layout='wide', initial_sidebar_state='expanded')
+st.set_page_config(page_title='Overview',page_icon='👁️',layout='wide', initial_sidebar_state='expanded')
 
 # ----------------------------------------------------------------
 # Leitura do dataframe bruto
