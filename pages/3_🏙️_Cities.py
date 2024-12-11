@@ -48,7 +48,7 @@ st.sidebar.image(image, use_column_width='auto')
 # Filtro multiseletor de paises
 st.sidebar.markdown('### Escolha o país.')
 # Chamada da função side_options para montar a lista de países (countrei_list)
-countri_list = functions.side_options(df)
+countrie_list = functions.side_options(df)
 st.sidebar.markdown('''---''')
 st.sidebar.markdown('''## Powered by Júlio Reis''')
 
